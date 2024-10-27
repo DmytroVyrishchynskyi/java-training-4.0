@@ -15,8 +15,10 @@ public class LambdaTest {
                 {-1.0, 10.0, 10.0},
                 {0.0, 0.0, 0.0},
                 {-10.0, NaN, NaN},
-                {POSITIVE_INFINITY, 1e32, POSITIVE_INFINITY}
-                // TODO add 2 more test data here
+                {POSITIVE_INFINITY, 1e32, POSITIVE_INFINITY},
+                // Additional tests
+                {7.0, 7.0, 7.0},
+                {Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY}
         };
     }
 
@@ -25,8 +27,10 @@ public class LambdaTest {
         return new Object[][]{
                 {25.0, 5.0},
                 {-1.0, NaN},
-                {POSITIVE_INFINITY, POSITIVE_INFINITY}
-                // TODO add 2 more test data here
+                {POSITIVE_INFINITY, POSITIVE_INFINITY},
+                // Additional tests
+                {16.0, 4.0},
+                {0.0, 0.0}
         };
     }
 
@@ -45,10 +49,10 @@ public class LambdaTest {
     public void testSqrt(Double a, Double b) {
         assertEquals(Lambda.getSqrt().apply(a), b, "Square root is incorrect");
 
-        assertTrue(Lambda.getMax().getClass().getGenericInterfaces().length > 0,
-                "getMax method should return Generic Functional Interface");
+        assertTrue(Lambda.getSqrt().getClass().getGenericInterfaces().length > 0,
+                "getSqrt method should return Generic Functional Interface");
 
-        assertTrue(Lambda.getMax().getClass().getGenericInterfaces()[0].getTypeName().contains("Function"),
-                "getMax method should return Functional interface");
+        assertTrue(Lambda.getSqrt().getClass().getGenericInterfaces()[0].getTypeName().contains("Function"),
+                "getSqrt method should return Functional interface");
     }
 }
